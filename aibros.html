@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zurich Fitness Rajajinagar - Best Gym in Bengaluru for Weight Training, Personal Training & Fat Loss.">
+    <title>Zurich Fitness Rajajinagar | Best Gym in Bangalore</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary: #00d4ff; /* Electric Blue */
+            --secondary: #ffcc00; /* Energy Gold */
+            --dark-bg: #111111;
+            --darker-bg: #0a0a0a;
+            --card-bg: #1a1a1a;
+            --text-light: #f4f4f4;
+            --text-gray: #aaaaaa;
+            --gradient: linear-gradient(135deg, #0a0a0a 0%, #1c1c1c 100%);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: var(--darker-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* --- UTILITY CLASSES --- */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: var(--primary);
+            z-index: -1;
+            transition: var(--transition);
+        }
+
+        .btn:hover::before {
+            width: 100%;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            color: #fff;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: #fff;
+        }
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+        }
+
+        /* --- NAVIGATION --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-light);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        /* --- HERO SECTION (SLIDER) --- */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.1); /* For Ken Burns effect */
+        }
+
+        .slide.active {
+            opacity: 1;
+            animation: zoomEffect 8s infinite alternate;
+        }
+
+        @keyframes zoomEffect {
+            from { transform: scale(1); }
+            to { transform: scale(1.15); }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: 20px;
+            transform: translateY(30px);
+            opacity: 0;
+            animation: slideUpFade 1s forwards 0.5s;
+        }
+
+        @keyframes slideUpFade {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #ddd;
+        }
+
+        .rating-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .rating-badge i {
+            color: var(--secondary);
+            margin-right: 8px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* --- TRUST SECTION --- */
+        .trust-section {
+            background: var(--dark-bg);
+            position: relative;
+            top: -50px;
+            z-index: 10;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .trust-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        .review-text {
+            font-style: italic;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .reviewer {
+            margin-top: 10px;
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about-section {
+            background: var(--gradient);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-img {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .about-img img {
+            transition: transform 0.5s ease;
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+        }
+
+        /* --- PROGRAMS SECTION --- */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .program-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.1);
+            border-color: var(--primary);
+        }
+
+        .program-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .program-info {
+            padding: 25px;
+        }
+
+        .program-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .program-info p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        /* --- GALLERY SECTION --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 250px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 212, 255, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        /* --- WHY CHOOSE US --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-box {
+            background: rgba(255,255,255,0.03);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary);
+            transition: var(--transition);
+        }
+
+        .feature-box:hover {
+            background: rgba(255,255,255,0.05);
+            transform: translateX(10px);
+        }
+
+        .feature-box i {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .feature-box h4 {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* --- ENQUIRY SECTION --- */
+        .enquiry-section {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(20, 20, 20, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            background: #2a2a2a;
+            border: 1px solid #333;
+            color: #fff;
+            border-radius: 5px;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: #333;
+        }
+
+        select.form-control {
+            cursor: pointer;
+        }
+
+        /* --- CONTACT & FOOTER --- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info h4 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+        }
+
+        .map-container {
+            width: 100%;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        footer {
+            background: #050505;
+            padding: 40px 0;
+            border-top: 1px solid #222;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            font-size: 1.5rem;
+            margin: 0 10px;
+            color: var(--text-gray);
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        /* --- ANIMATION CLASSES --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: #000;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: 0.4s ease;
+                z-index: 999;
+                border-left: 1px solid var(--primary);
+            }
+            .nav-links.active { right: 0; }
+            .hamburger { display: block; z-index: 1000; }
+            .about-grid { grid-template-columns: 1fr; }
+            .trust-section { top: 0; border-radius: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header id="navbar">
+        <div class="container">
+            <nav>
+                <div class="logo">ZURICH <span>FITNESS</span></div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <!-- Mobile Only Enquire in Menu -->
+                    <li><a href="#enquiry" class="btn btn-primary" style="padding: 8px 20px;">Join Now</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-slider">
+            <!-- Provided Image 1: SHUA Equipment -->
+            <div class="slide active" style="background-image: url('https://z-cdn-media.chatglm.cn/files/bc180900-e995-4487-884d-b63288f5ace2.png?auth_key=1870471802-d22721d8d13748fc838172d499a1ce0e-0-b08f198b8b3d6e16d275435e5bfaa701');"></div>
+            <!-- Generic High Quality Image 1 -->
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');"></div>
+            <!-- Provided Image 2: Night Signboard -->
+            <div class="slide" style="background-image: url('https://z-cdn-media.chatglm.cn/files/59d05fbf-693e-4686-862e-7d7f5b241b29.png?auth_key=1870471802-1b6cdf87f979481998f34e4b48d0a68a-0-c77fd9bf70a5f55069ad66bffb515453');"></div>
+            <!-- Generic High Quality Image 2 -->
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <div class="rating-badge">
+                <i class="fas fa-star"></i> 5.0 Google Rating | 130+ Reviews
+            </div>
+            <h1>One of Rajajinagar’s Most <br><span class="text-gradient">Trusted Fitness Gyms</span></h1>
+            <p>Transform your body with world-class equipment and expert trainers.</p>
+            <div class="hero-btns">
+                <a href="#enquiry" class="btn btn-primary">Enquire Now</a>
+                <a href="https://wa.me/918618225687" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+                <a href="tel:+918618225687" class="btn btn-outline"><i class="fas fa-phone"></i> Call Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <div class="container">
+        <section class="trust-section reveal">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <i class="fas fa-quote-left trust-icon"></i>
+                    <div>
+                        <p class="review-text">"Trainers are excellent—highly qualified and perfectly able to manage large groups with ease."</p>
+                        <p class="reviewer">- Anush Gho</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-star trust-icon"></i>
+                    <div>
+                        <p class="review-text">"Best gym in Rajajinagar. Good training and cleanly maintain very hygiene place."</p>
+                        <p class="reviewer">- Priya Pandian</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-dumbbell trust-icon"></i>
+                    <div>
+                        <p class="review-text">"I’ve been training at Zurich Fitness for a while now... trainer Bimal Sir is very supportive."</p>
+                        <p class="reviewer">- Arun Kumar D</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <h2 class="section-title">Build A <span class="text-gradient">Better You</span></h2>
+                    <p style="margin-bottom: 20px; color: #ccc;">At Zurich Fitness Rajajinagar, we believe in more than just workouts. We believe in a lifestyle of discipline, consistency, and results.</p>
+                    <p style="margin-bottom: 20px; color: #ccc;">Our friendly environment ensures that you never feel intimidated. Whether you are a beginner or a pro, our experienced trainers are here to guide your journey.</p>
+                    
+                    <ul style="margin-top: 30px;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> Premium SHUA & Imported Equipment</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> Personalized Diet & Training Plans</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> Clean & Hygienic Environment</li>
+                    </ul>
+                </div>
+                <div class="about-img reveal">
+                    <!-- Generic High Quality Image 3 -->
+                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Gym Training">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="section-padding">
+        <div class="container">
+            <div class="text-center reveal">
+                <h2 class="section-title">Our <span class="text-gradient">Programs</span></h2>
+                <p style="color: var(--text-gray);">Tailored solutions for your fitness goals.</p>
+            </div>
+            
+            <div class="programs-grid">
+                <!-- Card 1 -->
+                <div class="program-card reveal">
+                    <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="program-img" alt="Weight Training">
+                    <div class="program-info">
+                        <h3>Weight Training</h3>
+                        <p>Build strength and muscle with our certified trainers and state-of-the-art equipment.</p>
+                        <a href="#enquiry" class="btn btn-outline" style="padding: 10px 20px; font-size: 0.8rem;">Enquire</a>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="program-card reveal">
+                    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="program-img" alt="Fat Loss">
+                    <div class="program-info">
+                        <h3>Fat Loss</h3>
+                        <p>High-intensity workouts and diet counseling designed to burn calories effectively.</p>
+                        <a href="#enquiry" class="btn btn-outline" style="padding: 10px 20px; font-size: 0.8rem;">Enquire</a>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="program-card reveal">
+                    <img src="https://images.unsplash.com/photo-1549576490-b0b4831ef60a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="program-img" alt="Personal Training">
+                    <div class="program-info">
+                        <h3>Personal Training</h3>
+                        <p>One-on-one sessions with experts like Bimal Sir, Anil Sir & Vijay Sir for fast results.</p>
+                        <a href="#enquiry" class="btn btn-outline" style="padding: 10px 20px; font-size: 0.8rem;">Enquire</a>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="program-card reveal">
+                    <img src="https://images.unsplash.com/photo-1598971639058-fab3c3109a00?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="program-img" alt="Strength">
+                    <div class="program-info">
+                        <h3>Strength & Conditioning</h3>
+                        <p>Enhance your athletic performance and core stability with advanced training.</p>
+                        <a href="#enquiry" class="btn btn-outline" style="padding: 10px 20px; font-size: 0.8rem;">Enquire</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section-padding" style="background: var(--card-bg);">
+        <div class="container">
+            <div class="text-center reveal">
+                <h2 class="section-title">Gym <span class="text-gradient">Gallery</span></h2>
+                <p style="color: var(--text-gray);">A look inside our world-class facility.</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- Provided Image 3: Building -->
+                <div class="gallery-item reveal">
+                    <img src="https://z-cdn-media.chatglm.cn/files/e970a365-9401-4ff3-9e32-492cc57d2a52.png?auth_key=1870471802-4e4f9b63308a4f91ad83cd3c60e766d4-0-f09478b5835fe63b04a240b038ac49f4" alt="Zurich Fitness Building">
+                    <div class="gallery-overlay"><i class="fas fa-search"></i></div>
+                </div>
+                <!-- Generic Image 4 -->
+                <div class="gallery-item reveal">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Weights">
+                    <div class="gallery-overlay"><i class="fas fa-search"></i></div>
+                </div>
+                <!-- Generic Image 5 -->
+                <div class="gallery-item reveal">
+                    <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cardio">
+                    <div class="gallery-overlay"><i class="fas fa-search"></i></div>
+                </div>
+                <!-- Generic Image 6 -->
+                <div class="gallery-item reveal">
+                    <img src="https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Trainer">
+                    <div class="gallery-overlay"><i class="fas fa-search"></i></div>
+                </div>
+                 <!-- Generic Image 7 -->
+                 <div class="gallery-item reveal">
+                    <img src="https://images.unsplash.com/photo-1603287681836-e174ce7421b5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Gym Interior">
+                    <div class="gallery-overlay"><i class="fas fa-search"></i></div>
+                </div>
+                 <!-- Generic Image 8 -->
+                 <div class="gallery-item reveal">
+                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Training">
+                    <div class="gallery-overlay"><i class="fas fa-search"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center reveal">
+                <h2 class="section-title">Why Choose <span class="text-gradient">Zurich?</span></h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-box reveal">
+                    <i class="fas fa-medal"></i>
+                    <h4>Top-rated in Rajajinagar</h4>
+                    <p>Consistently rated 5.0 stars for our service and hygiene.</p>
+                </div>
+                <div class="feature-box reveal">
+                    <i class="fas fa-user-shield"></i>
+                    <h4>Experienced Trainers</h4>
+                    <p>Team including Anil, Bimal, Sunil & Vijay - experts in transformation.</p>
+                </div>
+                <div class="feature-box reveal">
+                    <i class="fas fa-bicycle"></i>
+                    <h4>Premium Equipment</h4>
+                    <p>Top-notch machines and imported SHUA equipment.</p>
+                </div>
+                <div class="feature-box reveal">
+                    <i class="fas fa-clock"></i>
+                    <h4>Flexible Timings</h4>
+                    <p>Open early morning till late night to suit your schedule.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enquiry Section -->
+    <section id="enquiry" class="section-padding enquiry-section">
+        <div class="container">
+            <div class="form-container reveal">
+                <div class="text-center">
+                    <h2 class="section-title">Start Your <span class="text-gradient">Journey</span></h2>
+                    <p style="color: #ddd; margin-bottom: 30px;">Fill out the form below for a free trial enquiry.</p>
+                </div>
+                
+                <form action="https://formspree.io/f/maqdybqg" method="POST" id="contactForm">
+                    <div class="form-group">
+                        <label style="color: #ccc; margin-bottom: 5px; display:block;">Name</label>
+                        <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label style="color: #ccc; margin-bottom: 5px; display:block;">Phone Number</label>
+                        <input type="tel" name="phone" class="form-control" placeholder="Your Mobile Number" required>
+                    </div>
+                    <div class="form-group">
+                        <label style="color: #ccc; margin-bottom: 5px; display:block;">Fitness Goal</label>
+                        <select name="goal" class="form-control">
+                            <option value="Weight Loss">Weight Loss</option>
+                            <option value="Muscle Gain">Muscle Gain</option>
+                            <option value="General Fitness">General Fitness</option>
+                            <option value="Personal Training">Personal Training</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label style="color: #ccc; margin-bottom: 5px; display:block;">Message (Optional)</label>
+                        <textarea name="message" class="form-control" rows="3" placeholder="Any specific requirements?"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Enquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <h2 class="section-title">Visit <span class="text-gradient">Us</span></h2>
+                    <p style="margin-bottom: 30px; color: #aaa;">We are located in the heart of Rajajinagar. Come for a visit!</p>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>9th Main Rd, 4th Block, Rajajinagar, Bengaluru, Karnataka 560010</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p><a href="tel:+918618225687">086182 25687</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Hours</h4>
+                            <p>Mon - Sat: 5:00 AM - 11:00 PM<br>Sunday: Consult Staff</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <a href="https://maps.app.goo.gl/DrT8Uo1iA1orUsGu7" target="_blank" class="btn btn-outline" style="width: 100%; text-align: center;">Get Directions</a>
+                    </div>
+                </div>
+
+                <div class="map-container reveal">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.546488559877!2d77.5500!3d12.9860!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d8471d8d7b1%3A0x6c6e3f8f8f8f8f8!2sZurich%20Fitness%20Rajajinagar!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="logo">ZURICH <span>FITNESS</span></div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p style="color: #666; font-size: 0.8rem;">&copy; 2024 Zurich Fitness Rajajinagar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // --- HERO SLIDER LOGIC ---
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        const slideInterval = 5000; // 5 seconds
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        setInterval(nextSlide, slideInterval);
+
+        // --- MOBILE MENU TOGGLE ---
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const navItems = document.querySelectorAll('.nav-links li a');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when link is clicked
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // --- SCROLL ANIMATIONS (INTERSECTION OBSERVER) ---
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        };
+
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // --- FORM HANDLING (Formspree) ---
+        const form = document.getElementById("contactForm");
+        
+        async function handleSubmit(event) {
+            event.preventDefault();
+            const data = new FormData(event.target);
+            const status = document.createElement("p");
+            status.style.marginTop = "10px";
+            status.style.color = "#fff";
+            form.appendChild(status);
+            
+            try {
+                const response = await fetch(event.target.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    status.innerHTML = "Thanks for enquiry! We will call you shortly.";
+                    status.style.color = "#25D366"; // Green success
+                    form.reset();
+                    // Simple Analytics Track (Console log for developer proof)
+                    console.log("Form Submitted Successfully");
+                } else {
+                    status.innerHTML = "Oops! There was a problem submitting your form.";
+                    status.style.color = "#ff4444";
+                }
+            } catch (error) {
+                status.innerHTML = "Oops! There was a problem submitting your form.";
+                status.style.color = "#ff4444";
+            }
+        }
+
+        form.addEventListener("submit", handleSubmit);
+
+        // --- STICKY NAVBAR EFFECT ---
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = "10px 0";
+                navbar.style.background = "rgba(5, 5, 5, 0.98)";
+            } else {
+                navbar.style.padding = "15px 0";
+                navbar.style.background = "rgba(10, 10, 10, 0.95)";
+            }
+        });
+
+    </script>
+</body>
+</html>
