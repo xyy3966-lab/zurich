@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Zurich Fitness Rajajinagar - Best Gym in Bengaluru for Weight Training, Personal Training & Fat Loss.">
-    <title>Zurich Fitness Rajajinagar | Best Gym in Bangalore</title>
+    <meta name="description" content="Magnet Gym Vijayanagar - Best Gym in Bengaluru for Weight Training, Personal Training & Fat Loss.">
+    <title>Magnet Gym Vijayanagar | Best Gym in Bangalore</title>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
     <style>
         /* --- CSS VARIABLES & RESET --- */
         :root {
-            --primary: #00d4ff; /* Electric Blue */
+            --primary: #00d4ff; /* Electric Blue (From Zurich Sample) */
             --secondary: #ffcc00; /* Energy Gold */
             --dark-bg: #111111;
             --darker-bg: #0a0a0a;
@@ -86,6 +86,7 @@
             -webkit-text-fill-color: transparent;
         }
 
+        /* --- BUTTONS WITH INTERACTIVE GLOW --- */
         .btn {
             display: inline-block;
             padding: 14px 32px;
@@ -120,11 +121,13 @@
         .btn-primary {
             background: var(--primary);
             color: #000;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
         }
 
         .btn-primary:hover {
             color: #fff;
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
+            transform: translateY(-3px);
         }
 
         .btn-outline {
@@ -137,15 +140,18 @@
             background: var(--primary);
             color: #000;
             box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+            transform: translateY(-3px);
         }
 
         .btn-whatsapp {
             background: #25D366;
             color: #fff;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.2);
         }
         .btn-whatsapp:hover {
             background: #128C7E;
-            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 0 25px rgba(37, 211, 102, 0.6);
+            transform: translateY(-3px);
         }
 
         /* --- NAVIGATION --- */
@@ -171,11 +177,12 @@
             font-size: 1.5rem;
             font-weight: 800;
             color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .logo span {
-            color: var(--primary);
-        }
+        .logo i { color: var(--primary); }
 
         .nav-links {
             display: flex;
@@ -187,11 +194,19 @@
             font-size: 0.9rem;
             text-transform: uppercase;
             transition: color 0.3s;
+            position: relative;
         }
 
-        .nav-links a:hover {
-            color: var(--primary);
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0; height: 2px;
+            bottom: -5px; left: 0;
+            background: var(--secondary);
+            transition: width 0.3s;
         }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--primary); }
 
         .hamburger {
             display: none;
@@ -208,6 +223,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            margin-top: 0; /* Since header is fixed */
         }
 
         .hero-slider {
@@ -226,7 +242,7 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 1s ease-in-out;
+            transition: opacity 1.5s ease-in-out;
             background-size: cover;
             background-position: center;
             transform: scale(1.1); /* For Ken Burns effect */
@@ -234,7 +250,7 @@
 
         .slide.active {
             opacity: 1;
-            animation: zoomEffect 8s infinite alternate;
+            animation: zoomEffect 10s infinite alternate;
         }
 
         @keyframes zoomEffect {
@@ -249,7 +265,7 @@
             width: 100%;
             height: 100%;
             background: rgba(0,0,0,0.6);
-            background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
+            background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.9) 100%);
             z-index: 0;
         }
 
@@ -261,7 +277,7 @@
             padding: 20px;
             transform: translateY(30px);
             opacity: 0;
-            animation: slideUpFade 1s forwards 0.5s;
+            animation: slideUpFade 1s forwards 0.8s;
         }
 
         @keyframes slideUpFade {
@@ -272,27 +288,30 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 20px;
-            line-height: 1.2;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            line-height: 1.1;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.8);
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 30px;
             color: #ddd;
+            text-shadow: 1px 1px 10px rgba(0,0,0,0.8);
         }
 
         .rating-badge {
             display: inline-flex;
             align-items: center;
             background: rgba(255,255,255,0.1);
-            padding: 8px 16px;
-            border-radius: 20px;
-            margin-bottom: 20px;
+            padding: 8px 20px;
+            border-radius: 30px;
+            margin-bottom: 25px;
             backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+            font-weight: bold;
         }
 
         .rating-badge i {
@@ -314,7 +333,7 @@
             top: -50px;
             z-index: 10;
             border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
             border-bottom: 2px solid var(--primary);
         }
 
@@ -329,10 +348,20 @@
             display: flex;
             align-items: flex-start;
             gap: 20px;
+            background: rgba(255,255,255,0.02);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+        }
+        
+        .trust-item:hover {
+            background: rgba(255,255,255,0.05);
+            transform: translateY(-5px);
         }
 
         .trust-icon {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--primary);
         }
 
@@ -367,7 +396,8 @@
             position: relative;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            border: 2px solid var(--primary);
         }
 
         .about-img img {
@@ -395,41 +425,43 @@
             background: var(--primary);
         }
 
-        /* --- PROGRAMS SECTION --- */
+        /* --- PROGRAMS SECTION (3D Cards) --- */
         .programs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             margin-top: 50px;
         }
 
         .program-card {
             background: var(--card-bg);
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
             transition: var(--transition);
             border: 1px solid rgba(255,255,255,0.05);
             position: relative;
+            transform-style: preserve-3d;
         }
 
         .program-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.1);
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.15);
             border-color: var(--primary);
         }
 
         .program-img {
-            height: 200px;
+            height: 220px;
             width: 100%;
             object-fit: cover;
         }
 
         .program-info {
             padding: 25px;
+            background: linear-gradient(to top, #222, #1a1a1a);
         }
 
         .program-info h3 {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 10px;
             color: var(--text-light);
         }
@@ -451,7 +483,7 @@
         .gallery-item {
             position: relative;
             height: 250px;
-            border-radius: 8px;
+            border-radius: 10px;
             overflow: hidden;
             cursor: pointer;
         }
@@ -469,7 +501,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 212, 255, 0.7);
+            background: rgba(0, 212, 255, 0.8);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -486,8 +518,14 @@
         }
 
         .gallery-overlay i {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: #fff;
+            transform: scale(0);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .gallery-item:hover .gallery-overlay i {
+            transform: scale(1);
         }
 
         /* --- WHY CHOOSE US --- */
@@ -507,24 +545,26 @@
         }
 
         .feature-box:hover {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.06);
             transform: translateX(10px);
+            border-left-color: var(--primary);
         }
 
         .feature-box i {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--secondary);
             margin-bottom: 15px;
         }
 
         .feature-box h4 {
             margin-bottom: 10px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            color: var(--text-light);
         }
 
         /* --- ENQUIRY SECTION --- */
         .enquiry-section {
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://z-cdn-media.chatglm.cn/files/d0a3fec7-68b4-4f8c-8476-351808b85300.png?auth_key=1870739139-4042fd9dba1041d6a9102e8723924de4-0-41a3667ef7f60a84d575af9f0aff0345');
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
@@ -533,11 +573,12 @@
         .form-container {
             max-width: 600px;
             margin: 0 auto;
-            background: rgba(20, 20, 20, 0.9);
+            background: rgba(20, 20, 20, 0.95);
             padding: 40px;
-            border-radius: 15px;
+            border-radius: 20px;
             border: 1px solid rgba(255,255,255,0.1);
             backdrop-filter: blur(10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
         }
 
         .form-group {
@@ -559,6 +600,7 @@
             outline: none;
             border-color: var(--primary);
             background: #333;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
         }
 
         select.form-control {
@@ -575,38 +617,46 @@
         .contact-info h4 {
             margin-bottom: 15px;
             color: var(--primary);
+            font-size: 1.2rem;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             font-size: 1rem;
+            background: rgba(255,255,255,0.03);
+            padding: 15px;
+            border-radius: 8px;
+            transition: var(--transition);
         }
+        .contact-item:hover { background: rgba(255,255,255,0.06); }
 
         .contact-item i {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             background: rgba(255,255,255,0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--secondary);
+            font-size: 1.2rem;
         }
 
         .map-container {
             width: 100%;
-            height: 300px;
-            border-radius: 10px;
+            height: 350px;
+            border-radius: 15px;
             overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 2px solid #333;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         footer {
             background: #050505;
-            padding: 40px 0;
+            padding: 50px 0;
             border-top: 1px solid #222;
             margin-top: 50px;
         }
@@ -620,14 +670,23 @@
         }
 
         .social-links a {
-            font-size: 1.5rem;
-            margin: 0 10px;
+            font-size: 1.8rem;
+            margin: 0 15px;
             color: var(--text-gray);
             transition: 0.3s;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
         }
 
         .social-links a:hover {
-            color: var(--primary);
+            color: #fff;
+            background: var(--primary);
+            transform: rotate(360deg);
         }
 
         /* --- ANIMATION CLASSES --- */
@@ -644,12 +703,12 @@
 
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
+            .hero h1 { font-size: 2.5rem; }
             .nav-links {
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 70%;
+                width: 75%;
                 height: 100vh;
                 background: #000;
                 flex-direction: column;
@@ -662,7 +721,7 @@
             .nav-links.active { right: 0; }
             .hamburger { display: block; z-index: 1000; }
             .about-grid { grid-template-columns: 1fr; }
-            .trust-section { top: 0; border-radius: 0; }
+            .trust-section { top: 0; border-radius: 0; margin-bottom: 30px; }
         }
     </style>
 </head>
@@ -672,15 +731,18 @@
     <header id="navbar">
         <div class="container">
             <nav>
-                <div class="logo">ZURICH <span>FITNESS</span></div>
+                <div class="logo">
+                    <i class="fas fa-magnet"></i> MAGNET <span>GYM</span>
+                </div>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#programs">Programs</a></li>
                     <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <!-- Mobile Only Enquire in Menu -->
-                    <li><a href="#enquiry" class="btn btn-primary" style="padding: 8px 20px;">Join Now</a></li>
+                    <li><a href="#enquiry" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">Join Now</a></li>
                 </ul>
                 <div class="hamburger" id="hamburger">
                     <i class="fas fa-bars"></i>
@@ -692,27 +754,28 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-slider">
-            <!-- Provided Image 1: SHUA Equipment -->
-            <div class="slide active" style="background-image: url('https://z-cdn-media.chatglm.cn/files/bc180900-e995-4487-884d-b63288f5ace2.png?auth_key=1870471802-d22721d8d13748fc838172d499a1ce0e-0-b08f198b8b3d6e16d275435e5bfaa701');"></div>
-            <!-- Generic High Quality Image 1 -->
-            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');"></div>
-            <!-- Provided Image 2: Night Signboard -->
-            <div class="slide" style="background-image: url('https://z-cdn-media.chatglm.cn/files/59d05fbf-693e-4686-862e-7d7f5b241b29.png?auth_key=1870471802-1b6cdf87f979481998f34e4b48d0a68a-0-c77fd9bf70a5f55069ad66bffb515453');"></div>
-            <!-- Generic High Quality Image 2 -->
-            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');"></div>
+            <!-- Using provided Magnet Gym Images -->
+            <!-- Image 1: Interior with lights -->
+            <div class="slide active" style="background-image: url('https://z-cdn-media.chatglm.cn/files/d0a3fec7-68b4-4f8c-8476-351808b85300.png?auth_key=1870739139-4042fd9dba1041d6a9102e8723924de4-0-41a3667ef7f60a84d575af9f0aff0345');"></div>
+            <!-- Image 2: Woman doing Squats -->
+            <div class="slide" style="background-image: url('https://z-cdn-media.chatglm.cn/files/8187e62d-b3ce-4064-9af5-03e1496d4331.png?auth_key=1870739139-d920091ebf024e84a55898b8ec2233e3-0-541b20bab312b168a83572d654ee0bea');"></div>
+            <!-- Image 3: Muscular Man -->
+            <div class="slide" style="background-image: url('https://z-cdn-media.chatglm.cn/files/daa4f7d1-e6a3-4374-a36f-601677ae299a.png?auth_key=1870739139-1e7ad9de30e74d5cb397fcb513ed7c8a-0-5c3b35cabcc473eb3424923d051bfc4a');"></div>
+            <!-- Image 4: Yoga -->
+            <div class="slide" style="background-image: url('https://z-cdn-media.chatglm.cn/files/e7b6e13c-72e3-4dc6-840f-554025e47f9b.png?auth_key=1870739139-353417dcca034668a7ec93b67c644b81-0-20784d55f220b805086a66e5cc42fa7e');"></div>
         </div>
         <div class="hero-overlay"></div>
         
         <div class="hero-content">
             <div class="rating-badge">
-                <i class="fas fa-star"></i> 5.0 Google Rating | 130+ Reviews
+                <i class="fas fa-star"></i> 4.9 Google Rating | 178+ Reviews
             </div>
-            <h1>One of Rajajinagar’s Most <br><span class="text-gradient">Trusted Fitness Gyms</span></h1>
-            <p>Transform your body with world-class equipment and expert trainers.</p>
+            <h1>One of Vijayanagar’s Most <br><span class="text-gradient">Trusted Fitness Gyms</span></h1>
+            <p>"EVERYDAY is a GOOD DAY to WORKOUT". Join Magnet Gym today.</p>
             <div class="hero-btns">
                 <a href="#enquiry" class="btn btn-primary">Enquire Now</a>
-                <a href="https://wa.me/918618225687" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
-                <a href="tel:+918618225687" class="btn btn-outline"><i class="fas fa-phone"></i> Call Now</a>
+                <a href="https://wa.me/919845630463" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+                <a href="tel:+919845630463" class="btn btn-outline"><i class="fas fa-phone"></i> Call Now</a>
             </div>
         </div>
     </section>
@@ -724,22 +787,22 @@
                 <div class="trust-item">
                     <i class="fas fa-quote-left trust-icon"></i>
                     <div>
-                        <p class="review-text">"Trainers are excellent—highly qualified and perfectly able to manage large groups with ease."</p>
-                        <p class="reviewer">- Anush Gho</p>
+                        <p class="review-text">"Well maintained and equipped Gym. Really appreciate Sunil Sir for his zeal in making a difference... Rare to find such a trainer."</p>
+                        <p class="reviewer">- Swathi Shankar</p>
                     </div>
                 </div>
                 <div class="trust-item">
                     <i class="fas fa-star trust-icon"></i>
                     <div>
-                        <p class="review-text">"Best gym in Rajajinagar. Good training and cleanly maintain very hygiene place."</p>
-                        <p class="reviewer">- Priya Pandian</p>
+                        <p class="review-text">"I have been going to this gym for about few months, and it’s been fantastic. The trainer is knowledgeable and always willing to help."</p>
+                        <p class="reviewer">- Swaheeba Swahe</p>
                     </div>
                 </div>
                 <div class="trust-item">
                     <i class="fas fa-dumbbell trust-icon"></i>
                     <div>
-                        <p class="review-text">"I’ve been training at Zurich Fitness for a while now... trainer Bimal Sir is very supportive."</p>
-                        <p class="reviewer">- Arun Kumar D</p>
+                        <p class="review-text">"Nice and good trainer, well maintained gym... I would recommend everyone to join this Gym for your overall well being and fitness."</p>
+                        <p class="reviewer">- girishk 0510</p>
                     </div>
                 </div>
             </div>
@@ -752,18 +815,18 @@
             <div class="about-grid">
                 <div class="about-text reveal">
                     <h2 class="section-title">Build A <span class="text-gradient">Better You</span></h2>
-                    <p style="margin-bottom: 20px; color: #ccc;">At Zurich Fitness Rajajinagar, we believe in more than just workouts. We believe in a lifestyle of discipline, consistency, and results.</p>
-                    <p style="margin-bottom: 20px; color: #ccc;">Our friendly environment ensures that you never feel intimidated. Whether you are a beginner or a pro, our experienced trainers are here to guide your journey.</p>
+                    <p style="margin-bottom: 20px; color: #ccc;">Welcome to <strong>MAGNET GYM</strong>, located in SBI Staff Colony, Hoshalli Extension, Stage 1, Vijayanagar. We are a community dedicated to body transformation, weight loss, and strength building.</p>
+                    <p style="margin-bottom: 20px; color: #ccc;">Our expert trainers led by Sunil Sir provide personalized coaching. Whether you are a beginner or a pro, our clean, fully-functional environment ensures you feel like you belong.</p>
                     
                     <ul style="margin-top: 30px;">
-                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> Premium SHUA & Imported Equipment</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> Modern & Fully Functional Equipment</li>
                         <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> Personalized Diet & Training Plans</li>
-                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> Clean & Hygienic Environment</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> Clean, Hygienic & Friendly Atmosphere</li>
                     </ul>
                 </div>
                 <div class="about-img reveal">
-                    <!-- Generic High Quality Image 3 -->
-                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Gym Training">
+                    <!-- Image: Guy in grey sitting on machine -->
+                    <img src="https://z-cdn-media.chatglm.cn/files/f409ffd7-8b43-436a-bf4e-709943b0a587.png?auth_key=1870739139-1aeeae2f051748099965ec2d461d7519-0-25f0426fcfddd44ec028b64378b885de" alt="Magnet Gym Equipment">
                 </div>
             </div>
         </div>
@@ -778,39 +841,39 @@
             </div>
             
             <div class="programs-grid">
-                <!-- Card 1 -->
+                <!-- Card 1: Strength -->
                 <div class="program-card reveal">
-                    <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="program-img" alt="Weight Training">
+                    <img src="https://z-cdn-media.chatglm.cn/files/8187e62d-b3ce-4064-9af5-03e1496d4331.png?auth_key=1870739139-d920091ebf024e84a55898b8ec2233e3-0-541b20bab312b168a83572d654ee0bea" class="program-img" alt="Strength Training">
                     <div class="program-info">
-                        <h3>Weight Training</h3>
-                        <p>Build strength and muscle with our certified trainers and state-of-the-art equipment.</p>
+                        <h3>Strength Training</h3>
+                        <p>Build muscle and power with our advanced equipment and structured weight programs.</p>
                         <a href="#enquiry" class="btn btn-outline" style="padding: 10px 20px; font-size: 0.8rem;">Enquire</a>
                     </div>
                 </div>
-                <!-- Card 2 -->
+                <!-- Card 2: Fat Loss -->
                 <div class="program-card reveal">
-                    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="program-img" alt="Fat Loss">
+                    <img src="https://z-cdn-media.chatglm.cn/files/93e6d5d1-620b-4f73-8b53-0e64c3afa7d6.png?auth_key=1870739139-d9959d3f5c7642a79bdf3357bc0876be-0-9b0c2a766ff16c704735f2b99f5c816b" class="program-img" alt="Fat Loss">
                     <div class="program-info">
-                        <h3>Fat Loss</h3>
-                        <p>High-intensity workouts and diet counseling designed to burn calories effectively.</p>
+                        <h3>Weight Loss</h3>
+                        <p>Effective cardio and diet plans designed to burn fat and improve endurance.</p>
                         <a href="#enquiry" class="btn btn-outline" style="padding: 10px 20px; font-size: 0.8rem;">Enquire</a>
                     </div>
                 </div>
-                <!-- Card 3 -->
+                <!-- Card 3: Yoga -->
                 <div class="program-card reveal">
-                    <img src="https://images.unsplash.com/photo-1549576490-b0b4831ef60a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="program-img" alt="Personal Training">
+                    <img src="https://z-cdn-media.chatglm.cn/files/e7b6e13c-72e3-4dc6-840f-554025e47f9b.png?auth_key=1870739139-353417dcca034668a7ec93b67c644b81-0-20784d55f220b805086a66e5cc42fa7e" class="program-img" alt="Yoga">
+                    <div class="program-info">
+                        <h3>Yoga & Flexibility</h3>
+                        <p>Dedicated Yoga and Vinyasa classes to improve core strength and mental peace.</p>
+                        <a href="#enquiry" class="btn btn-outline" style="padding: 10px 20px; font-size: 0.8rem;">Enquire</a>
+                    </div>
+                </div>
+                <!-- Card 4: Personal Training -->
+                <div class="program-card reveal">
+                    <img src="https://z-cdn-media.chatglm.cn/files/daa4f7d1-e6a3-4374-a36f-601677ae299a.png?auth_key=1870739139-1e7ad9de30e74d5cb397fcb513ed7c8a-0-5c3b35cabcc473eb3424923d051bfc4a" class="program-img" alt="Personal Training">
                     <div class="program-info">
                         <h3>Personal Training</h3>
-                        <p>One-on-one sessions with experts like Bimal Sir, Anil Sir & Vijay Sir for fast results.</p>
-                        <a href="#enquiry" class="btn btn-outline" style="padding: 10px 20px; font-size: 0.8rem;">Enquire</a>
-                    </div>
-                </div>
-                <!-- Card 4 -->
-                <div class="program-card reveal">
-                    <img src="https://images.unsplash.com/photo-1598971639058-fab3c3109a00?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="program-img" alt="Strength">
-                    <div class="program-info">
-                        <h3>Strength & Conditioning</h3>
-                        <p>Enhance your athletic performance and core stability with advanced training.</p>
+                        <p>One-on-one sessions with Sunil Sir and experts for accountability and faster results.</p>
                         <a href="#enquiry" class="btn btn-outline" style="padding: 10px 20px; font-size: 0.8rem;">Enquire</a>
                     </div>
                 </div>
@@ -823,39 +886,34 @@
         <div class="container">
             <div class="text-center reveal">
                 <h2 class="section-title">Gym <span class="text-gradient">Gallery</span></h2>
-                <p style="color: var(--text-gray);">A look inside our world-class facility.</p>
+                <p style="color: var(--text-gray);">A look inside our energy-filled space.</p>
             </div>
             
             <div class="gallery-grid">
-                <!-- Provided Image 3: Building -->
+                <!-- Images from prompt -->
                 <div class="gallery-item reveal">
-                    <img src="https://z-cdn-media.chatglm.cn/files/e970a365-9401-4ff3-9e32-492cc57d2a52.png?auth_key=1870471802-4e4f9b63308a4f91ad83cd3c60e766d4-0-f09478b5835fe63b04a240b038ac49f4" alt="Zurich Fitness Building">
-                    <div class="gallery-overlay"><i class="fas fa-search"></i></div>
+                    <img src="https://z-cdn-media.chatglm.cn/files/1a0def45-530b-40bc-9dbf-aab82ec47412.png?auth_key=1870739139-609d7e93481e45c59ae1aa859fa7e871-0-fddd7232c70a9213c8e84b368f79bda7" alt="Member">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
                 </div>
-                <!-- Generic Image 4 -->
                 <div class="gallery-item reveal">
-                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Weights">
-                    <div class="gallery-overlay"><i class="fas fa-search"></i></div>
+                    <img src="https://z-cdn-media.chatglm.cn/files/1cbf1f35-a603-4c08-aa45-41b0d16ea16e.png?auth_key=1870739139-b77237375a054895bb698c558d9c76ae-0-0d2e886fcd416f5a8467ac63561da623" alt="Interior">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
                 </div>
-                <!-- Generic Image 5 -->
                 <div class="gallery-item reveal">
-                    <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cardio">
-                    <div class="gallery-overlay"><i class="fas fa-search"></i></div>
+                    <img src="https://z-cdn-media.chatglm.cn/files/013fa7f5-a7b3-44cc-a122-212feae5295f.png?auth_key=1870739139-7547f0ef3c6e485484a707d02785c7d3-0-5c5febe929dd493a8db0f922d01bc968" alt="Event">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
                 </div>
-                <!-- Generic Image 6 -->
                 <div class="gallery-item reveal">
-                    <img src="https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Trainer">
-                    <div class="gallery-overlay"><i class="fas fa-search"></i></div>
+                    <img src="https://z-cdn-media.chatglm.cn/files/d0a3fec7-68b4-4f8c-8476-351808b85300.png?auth_key=1870739139-4042fd9dba1041d6a9102e8723924de4-0-41a3667ef7f60a84d575af9f0aff0345" alt="Lighting">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
                 </div>
-                 <!-- Generic Image 7 -->
                  <div class="gallery-item reveal">
-                    <img src="https://images.unsplash.com/photo-1603287681836-e174ce7421b5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Gym Interior">
-                    <div class="gallery-overlay"><i class="fas fa-search"></i></div>
+                    <img src="https://z-cdn-media.chatglm.cn/files/f409ffd7-8b43-436a-bf4e-709943b0a587.png?auth_key=1870739139-1aeeae2f051748099965ec2d461d7519-0-25f0426fcfddd44ec028b64378b885de" alt="Equipment">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
                 </div>
-                 <!-- Generic Image 8 -->
                  <div class="gallery-item reveal">
-                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Training">
-                    <div class="gallery-overlay"><i class="fas fa-search"></i></div>
+                    <img src="https://z-cdn-media.chatglm.cn/files/e7b6e13c-72e3-4dc6-840f-554025e47f9b.png?auth_key=1870739139-353417dcca034668a7ec93b67c644b81-0-20784d55f220b805086a66e5cc42fa7e" alt="Yoga">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
                 </div>
             </div>
         </div>
@@ -865,28 +923,28 @@
     <section class="section-padding">
         <div class="container">
             <div class="text-center reveal">
-                <h2 class="section-title">Why Choose <span class="text-gradient">Zurich?</span></h2>
+                <h2 class="section-title">Why Choose <span class="text-gradient">Magnet Gym?</span></h2>
             </div>
             <div class="features-grid">
                 <div class="feature-box reveal">
                     <i class="fas fa-medal"></i>
-                    <h4>Top-rated in Rajajinagar</h4>
-                    <p>Consistently rated 5.0 stars for our service and hygiene.</p>
+                    <h4>Top-rated in Vijayanagar</h4>
+                    <p>Consistently rated 4.9 stars for our service, hygiene, and results.</p>
                 </div>
                 <div class="feature-box reveal">
                     <i class="fas fa-user-shield"></i>
-                    <h4>Experienced Trainers</h4>
-                    <p>Team including Anil, Bimal, Sunil & Vijay - experts in transformation.</p>
+                    <h4>Expert Trainers</h4>
+                    <p>Lead by Sunil Sir, offering personalized attention to every member.</p>
                 </div>
                 <div class="feature-box reveal">
                     <i class="fas fa-bicycle"></i>
                     <h4>Premium Equipment</h4>
-                    <p>Top-notch machines and imported SHUA equipment.</p>
+                    <p>Fully functional, modern machinery for all major exercises.</p>
                 </div>
                 <div class="feature-box reveal">
                     <i class="fas fa-clock"></i>
                     <h4>Flexible Timings</h4>
-                    <p>Open early morning till late night to suit your schedule.</p>
+                    <p>Open 5:30 AM - 10:00 PM (Mon-Sat) & 7:00 AM - 10:00 PM (Sun).</p>
                 </div>
             </div>
         </div>
@@ -898,10 +956,11 @@
             <div class="form-container reveal">
                 <div class="text-center">
                     <h2 class="section-title">Start Your <span class="text-gradient">Journey</span></h2>
-                    <p style="color: #ddd; margin-bottom: 30px;">Fill out the form below for a free trial enquiry.</p>
+                    <p style="color: #ddd; margin-bottom: 30px;">Fill out the form below for a free enquiry.</p>
                 </div>
                 
-                <form action="https://formspree.io/f/maqdybqg" method="POST" id="contactForm">
+                <!-- FORMSPREE INTEGRATION: xqedekbl -->
+                <form action="https://formspree.io/f/xqedekbl" method="POST" id="contactForm">
                     <div class="form-group">
                         <label style="color: #ccc; margin-bottom: 5px; display:block;">Name</label>
                         <input type="text" name="name" class="form-control" placeholder="Your Name" required>
@@ -917,6 +976,7 @@
                             <option value="Muscle Gain">Muscle Gain</option>
                             <option value="General Fitness">General Fitness</option>
                             <option value="Personal Training">Personal Training</option>
+                            <option value="Yoga">Yoga</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -935,38 +995,39 @@
             <div class="contact-grid">
                 <div class="contact-info reveal">
                     <h2 class="section-title">Visit <span class="text-gradient">Us</span></h2>
-                    <p style="margin-bottom: 30px; color: #aaa;">We are located in the heart of Rajajinagar. Come for a visit!</p>
+                    <p style="margin-bottom: 30px; color: #aaa;">We are located in the heart of Vijayanagar. Come for a visit!</p>
                     
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
                             <h4>Address</h4>
-                            <p>9th Main Rd, 4th Block, Rajajinagar, Bengaluru, Karnataka 560010</p>
+                            <p>No. 637, 2nd Floor, 6th Main Road, SBI Staff Colony, Hoshalli Extension, Stage 1, Vijayanagar, Bengaluru, Karnataka 560040</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone-alt"></i>
                         <div>
                             <h4>Phone</h4>
-                            <p><a href="tel:+918618225687">086182 25687</a></p>
+                            <p><a href="tel:+919845630463" style="color: inherit;">+91 98456 30463</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-clock"></i>
                         <div>
                             <h4>Hours</h4>
-                            <p>Mon - Sat: 5:00 AM - 11:00 PM<br>Sunday: Consult Staff</p>
+                            <p>Mon - Sat: 5:30 AM - 10:00 PM<br>Sunday: 7:00 AM - 10:00 PM</p>
                         </div>
                     </div>
 
                     <div style="margin-top: 30px;">
-                        <a href="https://maps.app.goo.gl/DrT8Uo1iA1orUsGu7" target="_blank" class="btn btn-outline" style="width: 100%; text-align: center;">Get Directions</a>
+                        <a href="https://www.google.com/maps/place/MAGNET+GYM/@12.9723424,77.5399851,17z/data=!3m1!4b1!4m6!3m5!1s0x3bae3d776a063e9f:0x8712dc7ad8350487!8m2!3d12.9723424!4d77.542173!16s%2Fg%2F11h5nctm8j?entry=ttu" target="_blank" class="btn btn-outline" style="width: 100%; text-align: center;">Get Directions</a>
                     </div>
                 </div>
 
                 <div class="map-container reveal">
+                    <!-- Embedded Google Map -->
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.546488559877!2d77.5500!3d12.9860!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d8471d8d7b1%3A0x6c6e3f8f8f8f8f8!2sZurich%20Fitness%20Rajajinagar!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.578464898994!2d77.53779631475466!3d12.972342390856445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d776a063e9f%3A0x8712dc7ad8350487!2sMAGNET%20GYM!5e0!3m2!1sen!2sin!4v1678888888888!5m2!1sen!2sin" 
                         width="100%" 
                         height="100%" 
                         style="border:0;" 
@@ -980,13 +1041,15 @@
 
     <footer>
         <div class="container footer-content">
-            <div class="logo">ZURICH <span>FITNESS</span></div>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+            <div class="logo">
+                <i class="fas fa-magnet"></i> MAGNET <span>GYM</span>
             </div>
-            <p style="color: #666; font-size: 0.8rem;">&copy; 2024 Zurich Fitness Rajajinagar. All Rights Reserved.</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/magnet_gym/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/919845630463" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <p style="color: #666; font-size: 0.8rem;">&copy; 2024 Magnet Gym Vijayanagar. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -995,7 +1058,7 @@
         // --- HERO SLIDER LOGIC ---
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0;
-        const slideInterval = 5000; // 5 seconds
+        const slideInterval = 6000; // 6 seconds
 
         function nextSlide() {
             slides[currentSlide].classList.remove('active');
@@ -1012,12 +1075,23 @@
 
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            // Change icon
+            const icon = hamburger.querySelector('i');
+            if(navLinks.classList.contains('active')){
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
         });
 
         // Close menu when link is clicked
         navItems.forEach(item => {
             item.addEventListener('click', () => {
                 navLinks.classList.remove('active');
+                hamburger.querySelector('i').classList.remove('fa-times');
+                hamburger.querySelector('i').classList.add('fa-bars');
             });
         });
 
@@ -1050,11 +1124,12 @@
         async function handleSubmit(event) {
             event.preventDefault();
             const data = new FormData(event.target);
-            const status = document.createElement("p");
-            status.style.marginTop = "10px";
-            status.style.color = "#fff";
-            form.appendChild(status);
+            const btn = form.querySelector('button');
+            const originalText = btn.innerText;
             
+            btn.innerText = "Sending...";
+            btn.disabled = true;
+
             try {
                 const response = await fetch(event.target.action, {
                     method: form.method,
@@ -1065,18 +1140,31 @@
                 });
                 
                 if (response.ok) {
-                    status.innerHTML = "Thanks for enquiry! We will call you shortly.";
-                    status.style.color = "#25D366"; // Green success
+                    btn.innerText = "Enquiry Sent! We will call you.";
+                    btn.style.background = "#25D366"; // Green
                     form.reset();
-                    // Simple Analytics Track (Console log for developer proof)
-                    console.log("Form Submitted Successfully");
+                    setTimeout(() => {
+                        btn.innerText = originalText;
+                        btn.style.background = ""; // Reset
+                        btn.disabled = false;
+                    }, 5000);
                 } else {
-                    status.innerHTML = "Oops! There was a problem submitting your form.";
-                    status.style.color = "#ff4444";
+                    btn.innerText = "Oops! Try again.";
+                    btn.style.background = "#ff4444";
+                    setTimeout(() => {
+                        btn.innerText = originalText;
+                        btn.style.background = "";
+                        btn.disabled = false;
+                    }, 3000);
                 }
             } catch (error) {
-                status.innerHTML = "Oops! There was a problem submitting your form.";
-                status.style.color = "#ff4444";
+                btn.innerText = "Oops! Network error.";
+                btn.style.background = "#ff4444";
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.background = "";
+                    btn.disabled = false;
+                }, 3000);
             }
         }
 
@@ -1092,6 +1180,29 @@
                 navbar.style.padding = "15px 0";
                 navbar.style.background = "rgba(10, 10, 10, 0.95)";
             }
+        });
+
+        // --- 3D TILT EFFECT FOR CARDS (Extra Interactivity) ---
+        const cards = document.querySelectorAll('.program-card');
+        
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = ((y - centerY) / centerY) * -5; // Max rotation deg
+                const rotateY = ((x - centerX) / centerX) * 5;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+            });
         });
 
     </script>
